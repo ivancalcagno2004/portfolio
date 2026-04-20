@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Iconos genéricos de interfaz
 import { Mail, ExternalLink, Code2, Database, Layout, ArrowUpRight } from 'lucide-react';
 // Iconos de marcas registradas
@@ -23,7 +23,10 @@ const skillData = [
   },
 ];
 
-const Portfolio = () => (
+const Portfolio = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
+  return(
   <>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -37,15 +40,30 @@ const Portfolio = () => (
 
       {/* ── Nav ── */}
       <nav className="pf-nav">
-        <a href="#" className="pf-logo">
-          <img className="logo-img cta" src={logo} alt="Logo de Ivan" />
-        </a>
-        <ul className="pf-links">
-          <li><a href="#skills">Stack</a></li>
-          <li><a href="#projects">Proyectos</a></li>
-          <li><a href="https://mailto:ivancalcagno@gmail.com/" target="_blank" rel="noopener noreferrer" className="cta">Contacto</a></li>
-        </ul>
-      </nav>
+          <a href="#" className="pf-logo">
+            <img className="logo-img" src={logo} alt="Logo de Ivan" />
+          </a>
+
+          <button
+            className={`pf-nav-toggle${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Abrir menú"
+          >
+            <span className="pf-nav-toggle-bar" />
+            <span className="pf-nav-toggle-bar" />
+            <span className="pf-nav-toggle-bar" />
+          </button>
+
+          <ul className={`pf-links${menuOpen ? ' open' : ''}`}>
+            <li><a href="#skills" onClick={() => setMenuOpen(false)}>Stack</a></li>
+            <li><a href="#projects" onClick={() => setMenuOpen(false)}>Proyectos</a></li>
+            <li>
+              <a href="https://mailto:ivancalcagno@gmail.com" target="_blank" rel="noopener noreferrer" className="cta" onClick={() => setMenuOpen(false)}>
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </nav>
 
       {/* ── Hero ── */}
       <header className="pf-hero">
@@ -225,6 +243,6 @@ const Portfolio = () => (
 
     </div>
   </>
-);
+)};
 
 export default Portfolio;
