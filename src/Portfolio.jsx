@@ -57,8 +57,7 @@ const Portfolio = () => (
           </div>
           <h1 className="pf-h1">
             Full Stack<br />
-            Developer<br />
-            <span className="pf-h1-accent">&amp; Arquitecto.</span>
+            <span className="pf-h1-accent">Developer</span>
           </h1>
           <p className="pf-lead">
             Soy estudiante avanzado de <strong>TUDAI en la UNICEN</strong>. Diseño soluciones escalables

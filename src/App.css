@@ -24,6 +24,20 @@
   --font-body: "DM Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid var(--accent);
+  background: linear-gradient(180deg, var(--bg-card), var(--border));
+  border-radius: 999px;
+}
+
 html {
   scroll-behavior: smooth;
   transition: all 0.3s;
